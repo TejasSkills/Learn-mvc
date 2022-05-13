@@ -1,0 +1,50 @@
+﻿@model CRUD_Operation_17Apr.ViewModel.CustomerAddEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>
+    @if (Model.CustomerId > 0)
+    {
+        <text>Update Customer</text>
+    }
+    else
+    {
+        <text>Add Customer</text>
+    }
+</h2>
+
+@using (@Html.BeginForm("AddUpdateData", "Customer", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.CustomerId)
+    @Html.ValidationSummary(true, "Server errors:")
+    <table>
+        <tr>
+            <td>Enter Name:</td>
+            <td>
+                @Html.TextBoxFor(m => m.CustomerName)
+                @Html.ValidationMessageFor(s => s.CustomerName)
+            </td>
+        </tr>
+        <tr>
+            <td>Address1:</td>
+            <td>@Html.TextBoxFor(m => m.Address1)</td>
+        </tr>
+        <tr>
+            <td>Address2:</td>
+            <td>@Html.TextBoxFor(m => m.Address2)</td>
+        </tr>
+        <tr>
+            <td>Phonenumber:</td>
+            <td>
+                @Html.TextBoxFor(m => m.Phonenumber)
+                @Html.ValidationMessageFor(s => s.Phonenumber)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+}
+

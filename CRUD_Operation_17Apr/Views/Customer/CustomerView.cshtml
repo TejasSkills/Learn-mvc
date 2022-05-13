@@ -1,0 +1,33 @@
+﻿@model List<CRUD_Operation_17Apr.ViewModel.CustomerViewModel>
+@{
+    ViewBag.Title = "CustomerView";
+}
+
+<p> @Html.ActionLink("Add Customer", "Create") </p>
+
+<h4>List Of Customer</h4>
+
+
+<table class="table">
+    <tr>
+        <th>Customer Name</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>Phone Number</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+<tr>
+    <td>@customer.CustomerName</td>
+    <td>@customer.Address1</td>
+    <td>@customer.Address2</td>
+    <td>@customer.Phonenumber</td>
+    <td>
+        @Html.ActionLink("Edit", "EditCustomer", new { customerId = customer.CustomerId })
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "DeleteCustomer", new { customerId = customer.CustomerId })
+    </td>
+</tr>
+    }
+</table>

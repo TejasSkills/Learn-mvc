@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CRUD_Operation_17Apr.Controllers
 {
+    [Authorize(Roles = "Admin")]//add constant class for roles
     public class CustomerController : Controller
     {
         ApplicationDbContext dbContext = new ApplicationDbContext();
